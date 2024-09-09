@@ -36,7 +36,7 @@ int	main(int argc, char *argv[])
 		init_stack(&a, argv + 1);
 	if (already_sorted(a))
 		return (0);
-	if (double_elem(a))
+	if (double_elem(a) == 1)
 		return (0);
 	rra(&a, 1);
 	tmp = a;
