@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+static	void	get_out(char *msg)
+{
+	ft_printf("%s\n", msg);
+	exit(1);
+}
+
 int	ft_atoi(const char *str)
 {
 	int	sign;
@@ -29,8 +35,10 @@ int	ft_atoi(const char *str)
 		str++;
 	if (*str == '-' || *str == '+')
 		return (0);
-	while (ft_isdigit(*str) == 1)
+	while (*str)
 	{
+		if (!(*str >= '0' && *str <= '9'))
+			get_out("Error");
 		result = (result * 10) + (*str - '0');
 		str++;
 	}

@@ -1,8 +1,12 @@
+# **************************************************************************** #
+#                                                                              #
 #                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
 #    By: lrafael <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 09:23:51 by lrafael           #+#    #+#              #
-#    Updated: 2024/09/06 09:29:21 by lrafael          ###   ########.fr        #
+#    Updated: 2024/09/09 12:34:17 by lrafael          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +19,14 @@ OBJS_DIR = obj
 LIBFT_DIR = ./libft
 INCLUDE = -Iincs
 
-SRCS = $(SRCS_DIR)/main.c
+SRCS = $(SRCS_DIR)/ps_main.c			\
+		$(SRCS_DIR)/ps_init_stack.c		\
+		$(SRCS_DIR)/ps_stack_utils.c	\
+		$(SRCS_DIR)/ps_operations.c	    \
+		$(SRCS_DIR)/ps_operations+.c	\
+		$(SRCS_DIR)/ps_check.c			\
+		$(SRCS_DIR)/ps_r_operations.c
+
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 LIB = -L$(LIBFT_DIR) -lft
 
