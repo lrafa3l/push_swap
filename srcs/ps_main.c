@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 10:10:18 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/09 12:29:32 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/09 18:27:33 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (double_elem(a) == 1)
 		return (0);
-	rra(&a, 1);
+	ra(&a, 1);
 	tmp = a;
 	while (tmp != NULL)
 	{
