@@ -14,7 +14,7 @@
 
 int	already_sorted(t_stack *a)
 {
-	int x;
+	int	x;
 
 	x = a->value;
 	while (a)
@@ -27,18 +27,33 @@ int	already_sorted(t_stack *a)
 	return (1);
 }
 
-int double_elem(t_stack *a)
+int	double_elem(t_stack *a)
 {
-    int x;
+	t_stack	*tmp;
 
-    x = a->value;
-    while (a)
+	if (a == NULL)
+		return (0);
+	while (a)
+	{
+		tmp = a->next;
+		while (tmp)
+		{
+			if (a->value == tmp->value)
+				return (1);
+			tmp = tmp->next;
+		}
+		a = a->next;
+	}
+	return (0);
+}
+
+void	check_stack(t_stack *a)
+{
+	if (double_elem(a) == 1)
     {
-        if (!a->next)
-            return (0);
-        if (x == a->next->value)
-            return (1);
-        a = a->next;
+        ft_printf("Error\n");
+		exit (1);
     }
-    return (0);
+	if (already_sorted(a))
+		exit (0);
 }

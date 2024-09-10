@@ -9,9 +9,10 @@
 /*   Updated: 2024/05/15 10:09:43 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-static	void	get_out(char *msg)
+static void	get_out(char *msg)
 {
 	ft_printf("%s\n", msg);
 	exit(1);
@@ -19,20 +20,19 @@ static	void	get_out(char *msg)
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	result;
+	int		sign;
+	long	result;
 
 	sign = 1;
 	result = 0;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		sign *= -1;
+		if (*str == '-')
+			sign *= -1;
 		str++;
 	}
-	else if (*str == '+')
-		str++;
 	if (*str == '-' || *str == '+')
 		return (0);
 	while (*str)
@@ -42,5 +42,7 @@ int	ft_atoi(const char *str)
 		result = (result * 10) + (*str - '0');
 		str++;
 	}
-	return (result * sign);
+	if (result * sign > 2147483647 || result * sign < -2147483648)
+		get_out("Error");
+	return ((int)(result * sign));
 }

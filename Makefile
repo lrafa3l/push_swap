@@ -25,7 +25,8 @@ SRCS = $(SRCS_DIR)/ps_main.c			\
 		$(SRCS_DIR)/ps_operations.c	    \
 		$(SRCS_DIR)/ps_operations+.c	\
 		$(SRCS_DIR)/ps_check.c			\
-		$(SRCS_DIR)/ps_r_operations.c
+		$(SRCS_DIR)/ps_free.c			\
+		$(SRCS_DIR)/ps_roperations.c
 
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 LIB = -L$(LIBFT_DIR) -lft

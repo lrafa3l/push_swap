@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_main.c                                          :+:      :+:    :+:   */
+/*   ps_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 10:10:18 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/09 18:27:33 by lrafael          ###   ########.fr       */
+/*   Created: 2024/09/10 13:48:15 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/10 13:48:24 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	free_splited(char **elems)
 {
-	t_stack	*a;
-	t_stack	*tmp;
+	int	i;
 
-	// t_stack	*b;
-	a = NULL;
-	// b = NULL;
-	if (argc < 2)
-		return (1);
-	init_stack(&a, argv + 1);
-	check_stack(a);
-	ra(&a, 1);
-	tmp = a;
-	while (tmp != NULL)
-	{
-		ft_printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-	return (0);
+	i = -1;
+	if (!elems)
+		return ;
+	while (elems[++i])
+		free(elems[i]);
+	free(elems);
 }

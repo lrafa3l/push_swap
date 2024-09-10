@@ -30,7 +30,9 @@ int					already_sorted(t_stack *a);
 int					double_elem(t_stack *a);
 
 void				init_stack(t_stack **a, char **argv);
+void				check_stack(t_stack *a);
 void				add_to_stack(t_stack **a, int value);
+void				free_splited(char **elems);
 void				ft_print_error(char *msg);
 
 /*Operations*/

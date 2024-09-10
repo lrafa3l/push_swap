@@ -43,9 +43,19 @@ void	add_to_stack(t_stack **a, int value)
 
 void	init_stack(t_stack **a, char **argv)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	**elem;
 
-	i = 0;
-	while (argv[i])
-		add_to_stack(a, ft_atoi(argv[i++]));
+	if (argv[0][0] == '\0')
+		exit(1);
+	i = -1;
+	while (argv[++i])
+	{
+		j = -1;
+		elem = ft_split(argv[i], ' ');
+		while (elem[++j])
+			add_to_stack(a, ft_atoi(elem[j]));
+		free_splited(elem);
+	}
 }
