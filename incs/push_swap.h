@@ -26,8 +26,8 @@ t_stack				*create_node(int value);
 t_stack				*last_elem(t_stack *stack);
 
 int					count_elem(t_stack *stack);
-int					already_sorted(t_stack *a);
 int					double_elem(t_stack *a);
+int					already_sorted(t_stack *a);
 
 void				init_stack(t_stack **a, char **argv);
 void				check_stack(t_stack *a);
