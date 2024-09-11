@@ -50,10 +50,7 @@ int	double_elem(t_stack *a)
 void	check_stack(t_stack *a)
 {
 	if (double_elem(a) == 1)
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
+		ft_print_error("Error");
 	if (already_sorted(a))
 		exit(0);
 }
