@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 08:12:08 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/11 08:12:17 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/11 13:32:45 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sorting_three(t_stack **stack)
 {
-	t_stack *big;
+	t_stack	*big;
 
 	big = big_node(*stack);
 	if (big->value == (*stack)->value)
