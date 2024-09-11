@@ -23,6 +23,8 @@ typedef struct s_node
 }					t_stack;
 
 t_stack				*create_node(int value);
+t_stack				*big_node(t_stack *stack);
+t_stack				*small_node(t_stack *stack);
 t_stack				*last_elem(t_stack *stack);
 
 int					count_elem(t_stack *stack);
@@ -32,6 +34,7 @@ int					already_sorted(t_stack *a);
 void				init_stack(t_stack **a, char **argv);
 void				check_stack(t_stack *a);
 void				add_to_stack(t_stack **a, int value);
+void				sorting_three(t_stack **stack);
 void				free_splited(char **elems);
 void				ft_print_error(char *msg);
 

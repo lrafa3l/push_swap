@@ -21,6 +21,38 @@ t_stack	*last_elem(t_stack *stack)
 	return (stack);
 }
 
+t_stack	*big_node(t_stack *stack)
+{
+	t_stack	*big;
+	t_stack	*tmp;
+
+	big = stack;
+	tmp = stack->next;
+	while (tmp)
+	{
+		if (tmp->value > big->value)
+			big = tmp;
+		tmp = tmp->next;
+	}
+	return (big);
+}
+
+t_stack	*small_node(t_stack *stack)
+{
+	t_stack	*small;
+	t_stack	*tmp;
+
+	small = stack;
+	tmp = stack->next;
+	while (tmp)
+	{
+		if (tmp->value < small->value)
+			small = tmp;
+		tmp = tmp->next;
+	}
+	return (small);
+}
+
 int	count_elem(t_stack *stack)
 {
 	t_stack	*tmp;

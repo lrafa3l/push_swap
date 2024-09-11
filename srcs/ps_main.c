@@ -24,7 +24,8 @@ int	main(int argc, char *argv[])
 		return (1);
 	init_stack(&a, argv + 1);
 	check_stack(a);
-	ra(&a, 1);
+	sorting_three(&a);
+	//ra(&a, 1);
 	tmp = a;
 	while (tmp != NULL)
 	{

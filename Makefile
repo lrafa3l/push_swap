@@ -22,11 +22,12 @@ INCLUDE = -Iincs
 SRCS = $(SRCS_DIR)/ps_main.c			\
 		$(SRCS_DIR)/ps_init_stack.c		\
 		$(SRCS_DIR)/ps_stack_utils.c	\
+		$(SRCS_DIR)/ps_check.c			\
 		$(SRCS_DIR)/ps_operations.c	    \
 		$(SRCS_DIR)/ps_operations+.c	\
-		$(SRCS_DIR)/ps_check.c			\
-		$(SRCS_DIR)/ps_free.c			\
-		$(SRCS_DIR)/ps_roperations.c
+		$(SRCS_DIR)/ps_roperations.c	\
+		$(SRCS_DIR)/ps_algorithm.c		\
+		$(SRCS_DIR)/ps_free.c
 
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 LIB = -L$(LIBFT_DIR) -lft

@@ -12,3 +12,15 @@
 
 #include "../incs/push_swap.h"
 
+void	sorting_three(t_stack **stack)
+{
+	t_stack *big;
+
+	big = big_node(*stack);
+	if (big->value == (*stack)->value)
+		ra(stack, 1);
+	else if (big->value == (*stack)->next->value)
+		rra(stack, 1);
+	if ((*stack)->value > (*stack)->next->value)
+		sa(stack, 1);
+}
