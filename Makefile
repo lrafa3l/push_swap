@@ -24,7 +24,6 @@ SRCS = $(SRCS_DIR)/ps_main.c			\
 		$(SRCS_DIR)/ps_stack_utils.c	\
 		$(SRCS_DIR)/ps_check.c			\
 		$(SRCS_DIR)/ps_operations.c	    \
-		$(SRCS_DIR)/ps_operations+.c	\
 		$(SRCS_DIR)/ps_roperations.c	\
 		$(SRCS_DIR)/ps_algorithm.c		\
 		$(SRCS_DIR)/ps_free.c

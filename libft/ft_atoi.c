@@ -31,16 +31,15 @@ int	ft_atoi(const char *str)
 	{
 		if (*str == '-')
 			sign *= -1;
+		if (!(*str >= '0' && *str <= '9'))
+			get_out("Error");
 		str++;
 	}
-	if ((*(str + 1)) == '-' || (*(str + 1)) == '+')
-		get_out("Error");
 	while (*str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
 			get_out("Error");
-		result = (result * 10) + (*str - '0');
-		str++;
+		result = (result * 10) + (*(str++) - '0');
 	}
 	if (((result * sign) > 2147483647) || ((result * sign) < -2147483648))
 		get_out("Error");

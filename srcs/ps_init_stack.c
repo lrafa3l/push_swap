@@ -47,8 +47,8 @@ void	init_stack(t_stack **a, char **argv)
 	int		j;
 	char	**elem;
 
-	if (argv[0][0] == '\0')
-		exit(1);
+	if (argv[0][0] == '\0' || argv[0][0] == ' ')
+		ft_print_error("Error");
 	i = -1;
 	while (argv[++i])
 	{

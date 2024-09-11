@@ -56,13 +56,6 @@ void	sb(t_stack **b, int fl)
 	}
 }
 
-void	ss(t_stack **a, t_stack **b)
-{
-	sa(a, 0);
-	sb(b, 0);
-	ft_printf("ss\n");
-}
-
 void	pa(t_stack **a, t_stack **b)
 {
 	t_stack	*first;
@@ -103,4 +96,11 @@ void	pb(t_stack **a, t_stack **b)
 		*a = secnd;
 		ft_printf("pb\n");
 	}
+}
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	rra(a, 0);
+	rrb(b, 0);
+	ft_printf("rrr\n");
 }

@@ -41,7 +41,6 @@ void				ft_print_error(char *msg);
 /*Operations*/
 void				sa(t_stack **a, int fl);
 void				sb(t_stack **b, int fl);
-void				ss(t_stack **a, t_stack **b);
 
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **a, t_stack **b);
