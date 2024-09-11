@@ -33,8 +33,8 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		str++;
 	}
-	if (*str == '-' || *str == '+')
-		return (0);
+	if ((*(str + 1)) == '-' || (*(str + 1)) == '+')
+		get_out("Error");
 	while (*str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
