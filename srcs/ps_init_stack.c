@@ -41,19 +41,19 @@ void	add_to_stack(t_stack **a, int value)
 	}
 }
 
-void	init_stack(t_stack **a, char **argv)
+void	init_stack(t_stack **a, char **av)
 {
 	int		i;
 	int		j;
 	char	**elem;
 
-	if (argv[0][0] == '\0' || argv[0][0] == ' ')
+	if (!av[0][0] || av[0][0] == ' ' || av[0][0] == '\t')
 		ft_print_error("Error");
 	i = -1;
-	while (argv[++i])
+	while (av[++i])
 	{
 		j = -1;
-		elem = ft_split(argv[i], ' ');
+		elem = ft_split(av[i], ' ');
 		while (elem[++j])
 			add_to_stack(a, ft_atoi(elem[j]));
 		free_splited(elem);

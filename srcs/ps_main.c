@@ -12,21 +12,21 @@
 
 #include "../incs/push_swap.h"
 
-int	main(int argc, char *argv[])
+int	main(int argc, char *av[])
 {
 	t_stack	*a;
+	//t_stack	*b;
 	t_stack	*tmp;
 
-	// t_stack	*b;
 	a = NULL;
-	// b = NULL;
+	//b = NULL;
 	if (argc < 2)
 		return (1);
-	init_stack(&a, argv + 1);
+	init_stack(&a, av + 1);
 	check_stack(a);
 	if (count_elem(a) == 2)
-		sorting_two(&a);
-	if (count_elem(a) == 3)
+		sa(&a, 1);
+	else if (count_elem(a) == 3)
 		sorting_three(&a);
 	tmp = a;
 	while (tmp != NULL)

@@ -31,9 +31,9 @@ int	ft_atoi(const char *str)
 	{
 		if (*str == '-')
 			sign *= -1;
+		str++;
 		if (!(*str >= '0' && *str <= '9'))
 			get_out("Error");
-		str++;
 	}
 	while (*str)
 	{

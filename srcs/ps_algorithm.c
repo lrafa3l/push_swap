@@ -12,12 +12,6 @@
 
 #include "../incs/push_swap.h"
 
-void	sorting_two(t_stack **stack)
-{
-	if ((*stack)->value > (*stack)->next->value)
-		sa(stack, 1);
-}
-
 void	sorting_three(t_stack **stack)
 {
 	t_stack	*big;
