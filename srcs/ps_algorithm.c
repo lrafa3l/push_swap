@@ -24,3 +24,17 @@ void	sorting_three(t_stack **stack)
 	if ((*stack)->value > (*stack)->next->value)
 		sa(stack, 1);
 }
+
+void	sorting(t_stack **a, t_stack **b)
+{
+	while (count_elem(*a) > 3)
+	{
+		process_stack(*a, *b);
+	}
+}
+
+void	process_stack(t_stack *a, t_stack *b)
+{
+	(void)*b;
+	put_index(a);
+}

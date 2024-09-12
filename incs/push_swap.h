@@ -18,6 +18,12 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
+	int				cost;
+	int				up_middle;
+	int				cheapest;
+
+	struct s_node	*target;
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_stack;
@@ -35,6 +41,9 @@ void				init_stack(t_stack **a, char **argv);
 void				check_stack(t_stack *a);
 void				add_to_stack(t_stack **a, int value);
 void				sorting_three(t_stack **stack);
+void				sorting(t_stack **a, t_stack **b);
+void				process_stack(t_stack *a, t_stack *b);
+void				put_index(t_stack *stack);
 void				free_splited(char **elems);
 void				ft_print_error(char *msg);
 

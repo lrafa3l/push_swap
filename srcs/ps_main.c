@@ -15,11 +15,11 @@
 int	main(int argc, char *av[])
 {
 	t_stack	*a;
-	//t_stack	*b;
+	t_stack	*b;
 	t_stack	*tmp;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (argc < 2)
 		return (1);
 	init_stack(&a, av + 1);
@@ -28,6 +28,8 @@ int	main(int argc, char *av[])
 		sa(&a, 1);
 	else if (count_elem(a) == 3)
 		sorting_three(&a);
+	else
+		sorting(&a, &b);
 	tmp = a;
 	while (tmp != NULL)
 	{
