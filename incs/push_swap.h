@@ -35,6 +35,7 @@ void				init_stack(t_stack **a, char **argv);
 void				check_stack(t_stack *a);
 void				add_to_stack(t_stack **a, int value);
 void				sorting_three(t_stack **stack);
+void				sorting_two(t_stack **stack);
 void				free_splited(char **elems);
 void				ft_print_error(char *msg);
 
