@@ -6,11 +6,34 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 17:23:48 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/11 13:32:53 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/13 14:45:52 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
+
+void	check_space(char **av)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	while (av[i])
+	{
+		j = 0;
+		k = 0;
+		while (av[i][j])
+		{
+			if (av[i][j] != ' ')
+				k++;
+			j++;
+		}
+		i++;
+	}
+	if (k == 0)
+		ft_print_error("Error");
+}
 
 int	already_sorted(t_stack *a)
 {

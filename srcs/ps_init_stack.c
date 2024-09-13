@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:02:23 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/11 13:33:13 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/13 14:46:08 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void	init_stack(t_stack **a, char **av)
 	int		j;
 	char	**elem;
 
-	if (!av[0][0] || av[0][0] == ' ' || av[0][0] == '\t')
-		ft_print_error("Error");
 	i = -1;
 	while (av[++i])
 	{

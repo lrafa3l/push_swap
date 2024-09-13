@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 10:10:18 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/11 13:33:32 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/13 14:46:16 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ int	main(int argc, char *av[])
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*tmp;
-	t_stack	*tmp1;
 
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
 		return (1);
+	check_space(av);
 	init_stack(&a, av + 1);
 	check_stack(a);
 	if (count_elem(a) == 2)
@@ -31,18 +30,5 @@ int	main(int argc, char *av[])
 		sorting_three(&a);
 	else
 		sorting(&a, &b);
-	tmp = a;
-	while (tmp != NULL)
-	{
-		ft_printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
-	tmp1 = b;
-	while (tmp1 != NULL)
-	{
-		ft_printf("%d\n", tmp1->value);
-		tmp1 = tmp1->next;
-	}
 	return (0);
 }

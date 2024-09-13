@@ -6,15 +6,16 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 10:15:31 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/11 13:36:44 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/13 14:46:58 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "../libft/libft.h"
 # include <limits.h>
+
 typedef struct s_node
 {
 	int				value;
@@ -40,6 +41,7 @@ int					double_elem(t_stack *a);
 int					already_sorted(t_stack *a);
 
 /*Validations*/
+void				check_space(char **av);
 void				init_stack(t_stack **a, char **argv);
 void				check_stack(t_stack *a);
 void				add_to_stack(t_stack **a, int value);

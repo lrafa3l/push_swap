@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 08:12:08 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/11 13:32:45 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/13 14:45:41 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,16 @@ void	sorting(t_stack **a, t_stack **b)
 {
 	int	stack_size;
 
-	// int		i;
-	// t_stack	*tmp1;
-	// i = 0;
 	stack_size = count_elem(*a);
 	while (stack_size-- > 3)
 		pb(a, b);
 	sorting_three(a);
 	while (*b)
 	{
-		// i++;
 		process_stack(*a, *b);
-		// if (i == 1)
-		// 	break ;
 		get_ready_to_push(a, b);
 	}
 	small_node_on_top(a);
-	// tmp1 = *b;
-	// while (tmp1 != NULL)
-	// {
-	// 	ft_printf("Index: %d Value: %d Target: %d Cost: %d\n\n", tmp1->index,
-	// 		tmp1->value, tmp1->target->value, tmp1->cost);
-	// 	if (tmp1->cheapest == 1)
-	// 		ft_printf("Cheapest: %d\n", tmp1->value);
-	// 	tmp1 = tmp1->next;
-	// }
-	if (already_sorted(*a))
-		ft_printf("\nDone\n");
 }
 
 void	process_stack(t_stack *a, t_stack *b)
