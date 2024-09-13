@@ -14,7 +14,7 @@
 # define PUSH_SWAP
 
 # include "../libft/libft.h"
-
+# include <limits.h>
 typedef struct s_node
 {
 	int				value;
@@ -28,22 +28,33 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_stack;
 
+/*Stack Utils*/
 t_stack				*create_node(int value);
 t_stack				*big_node(t_stack *stack);
 t_stack				*small_node(t_stack *stack);
 t_stack				*last_elem(t_stack *stack);
+t_stack				*get_cheapest(t_stack *stack);
 
 int					count_elem(t_stack *stack);
 int					double_elem(t_stack *a);
 int					already_sorted(t_stack *a);
 
+/*Validations*/
 void				init_stack(t_stack **a, char **argv);
 void				check_stack(t_stack *a);
 void				add_to_stack(t_stack **a, int value);
+
+/*Algorithm abd Utils*/
 void				sorting_three(t_stack **stack);
 void				sorting(t_stack **a, t_stack **b);
 void				process_stack(t_stack *a, t_stack *b);
 void				put_index(t_stack *stack);
+void				find_target(t_stack *a, t_stack *b);
+void				find_cost(t_stack *a, t_stack *b);
+void				find_cheapest(t_stack *stack);
+void				process_stack(t_stack *a, t_stack *b);
+void				get_ready_to_push(t_stack **a, t_stack **b);
+void				small_node_on_top(t_stack **a);
 void				free_splited(char **elems);
 void				ft_print_error(char *msg);
 

@@ -36,5 +36,12 @@ int	main(int argc, char *av[])
 		ft_printf("%d\n", tmp->value);
 		tmp = tmp->next;
 	}
+	ft_printf("\n");
+	t_stack *tmp1 = b;
+	while (tmp1 != NULL)
+	{
+		ft_printf("%d\n", tmp1->value);
+		tmp1 = tmp1->next;
+	}
 	return (0);
 }
