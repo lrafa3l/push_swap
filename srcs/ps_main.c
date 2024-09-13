@@ -17,6 +17,7 @@ int	main(int argc, char *av[])
 	t_stack	*a;
 	t_stack	*b;
 	t_stack	*tmp;
+	t_stack	*tmp1;
 
 	a = NULL;
 	b = NULL;
@@ -37,7 +38,7 @@ int	main(int argc, char *av[])
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
-	t_stack *tmp1 = b;
+	tmp1 = b;
 	while (tmp1 != NULL)
 	{
 		ft_printf("%d\n", tmp1->value);

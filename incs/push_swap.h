@@ -52,11 +52,9 @@ void				put_index(t_stack *stack);
 void				find_target(t_stack *a, t_stack *b);
 void				find_cost(t_stack *a, t_stack *b);
 void				find_cheapest(t_stack *stack);
-void				process_stack(t_stack *a, t_stack *b);
 void				get_ready_to_push(t_stack **a, t_stack **b);
 void				small_node_on_top(t_stack **a);
 void				free_splited(char **elems);
-void				ft_print_error(char *msg);
 
 /*Operations*/
 void				sa(t_stack **a, int fl);
@@ -72,5 +70,8 @@ void				rr(t_stack **a, t_stack **b);
 void				rra(t_stack **a, int fl);
 void				rrb(t_stack **b, int fl);
 void				rrr(t_stack **a, t_stack **b);
+
+/*Others*/
+void				ft_print_error(char *msg);
 
 #endif

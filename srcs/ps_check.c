@@ -15,6 +15,7 @@
 int	already_sorted(t_stack *a)
 {
 	int	x;
+
 	if (!a)
 		return (1);
 	x = a->value;
