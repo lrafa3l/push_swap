@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 10:15:31 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/13 14:46:58 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/15 09:22:43 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,24 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_stack;
 
-/*Stack Utils*/
-t_stack				*create_node(int value);
-t_stack				*big_node(t_stack *stack);
-t_stack				*small_node(t_stack *stack);
-t_stack				*last_elem(t_stack *stack);
-t_stack				*get_cheapest(t_stack *stack);
+t_stack				*ft_last_elem(t_stack *stack);
+t_stack				*ft_small_node(t_stack *stack);
+t_stack				*ft_big_node(t_stack *stack);
 
-int					count_elem(t_stack *stack);
-int					double_elem(t_stack *a);
-int					already_sorted(t_stack *a);
+void				ft_stack_init(t_stack **a, char **av);
+void				ft_add_to_stack(t_stack **a, int value);
+void				ft_print_error(t_stack **a, char **elem);
+void				ft_free_stack(t_stack **a);
+void				ft_free_split(char **elem);
+void				ft_atol_error(t_stack **a);
 
-/*Validations*/
-void				check_space(char **av);
-void				init_stack(t_stack **a, char **argv);
-void				check_stack(t_stack *a);
-void				add_to_stack(t_stack **a, int value);
-
-/*Algorithm abd Utils*/
 void				sorting_three(t_stack **stack);
-void				sorting(t_stack **a, t_stack **b);
-void				process_stack(t_stack *a, t_stack *b);
-void				put_index(t_stack *stack);
-void				find_target(t_stack *a, t_stack *b);
-void				find_cost(t_stack *a, t_stack *b);
-void				find_cheapest(t_stack *stack);
-void				get_ready_to_push(t_stack **a, t_stack **b);
-void				small_node_on_top(t_stack **a);
+
+int					ft_check_dup(t_stack *stack, int value);
+int					ft_already_sorted(t_stack *stack);
+int					ft_stack_len(t_stack *stack);
+
+long				ft_atol(const char *s, t_stack **a);
 
 /*Operations*/
 void				sa(t_stack **a, int fl);
@@ -71,9 +62,5 @@ void				rr(t_stack **a, t_stack **b);
 void				rra(t_stack **a, int fl);
 void				rrb(t_stack **b, int fl);
 void				rrr(t_stack **a, t_stack **b);
-
-/*Others*/
-void				free_splited(char **elems);
-void				ft_print_error(char *msg);
 
 #endif

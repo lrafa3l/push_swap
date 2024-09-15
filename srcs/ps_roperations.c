@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:29:53 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/13 14:46:30 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/15 09:20:48 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ra(t_stack **a, int fl)
 
 	first = *a;
 	secnd = (*a)->next;
-	last = last_elem(*a);
+	last = ft_last_elem(*a);
 	if (*a != NULL && (*a)->next != NULL)
 	{
 		first->next = NULL;
@@ -41,7 +41,7 @@ void	rb(t_stack **b, int fl)
 
 	first = *b;
 	secnd = (*b)->next;
-	last = last_elem(*b);
+	last = ft_last_elem(*b);
 	if (*b != NULL && (*b)->next != NULL)
 	{
 		first->next = NULL;
@@ -67,7 +67,7 @@ void	rra(t_stack **a, int fl)
 	t_stack	*last;
 
 	first = *a;
-	last = last_elem(*a);
+	last = ft_last_elem(*a);
 	if (*a != NULL && (*a)->next != NULL)
 	{
 		last->prev->next = NULL;
@@ -86,7 +86,7 @@ void	rrb(t_stack **b, int fl)
 	t_stack	*last;
 
 	first = *b;
-	last = last_elem(*b);
+	last = ft_last_elem(*b);
 	if (*b != NULL && (*b)->next != NULL)
 	{
 		last->prev->next = NULL;

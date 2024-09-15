@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_free.c                                          :+:      :+:    :+:   */
+/*   ps_stack_utils+.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 13:48:15 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 09:20:27 by lrafael          ###   ########.fr       */
+/*   Created: 2024/09/09 12:30:06 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/15 09:21:30 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	ft_free_stack(t_stack **a)
+void	ft_print_error(t_stack **a, char **elem)
 {
-	t_stack	*tmp;
-
-	while (*a)
-	{
-		tmp = (*a)->next;
-		free(*a);
-		*a = tmp;
-	}
-	*a = NULL;
+	ft_free_stack(a);
+	if (elem != NULL)
+		ft_free_split(elem);
+	ft_printf("Error\n");
+	exit(1);
 }
 
-void	ft_free_split(char **elem)
+void	ft_atol_error(t_stack **a)
 {
-	int	i;
-
-	i = 0;
-	if (!elem)
-		return ;
-	while (elem[i])
-		free(elem[i++]);
-	free(elem);
+	ft_free_stack(a);
+	ft_printf("Error\n");
+	exit(1);
 }

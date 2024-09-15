@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_free.c                                          :+:      :+:    :+:   */
+/*   ps_sorting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 13:48:15 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 09:20:27 by lrafael          ###   ########.fr       */
+/*   Created: 2024/09/11 08:12:08 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/15 09:20:57 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	ft_free_stack(t_stack **a)
+void	sorting_three(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*big;
 
-	while (*a)
-	{
-		tmp = (*a)->next;
-		free(*a);
-		*a = tmp;
-	}
-	*a = NULL;
-}
-
-void	ft_free_split(char **elem)
-{
-	int	i;
-
-	i = 0;
-	if (!elem)
-		return ;
-	while (elem[i])
-		free(elem[i++]);
-	free(elem);
+	big = ft_big_node(*stack);
+	if (big->value == (*stack)->value)
+		ra(stack, 1);
+	else if (big->value == (*stack)->next->value)
+		rra(stack, 1);
+	if ((*stack)->value > (*stack)->next->value)
+		sa(stack, 1);
 }

@@ -6,70 +6,68 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:30:06 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/13 14:46:38 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/15 09:21:22 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-t_stack	*last_elem(t_stack *stack)
+t_stack	*ft_last_elem(t_stack *stack)
 {
 	if (!stack)
-		return (NULL);
-	while (stack->next != NULL)
+		return (0);
+	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
 
-t_stack	*big_node(t_stack *stack)
+t_stack	*ft_big_node(t_stack *stack)
 {
 	t_stack	*big;
-	t_stack	*tmp;
 
 	big = stack;
-	tmp = stack->next;
-	while (tmp)
+	if (!stack)
 	{
-		if (tmp->value > big->value)
-			big = tmp;
-		tmp = tmp->next;
+		return (NULL);
+	}
+	while (stack)
+	{
+		if (big->value < stack->value)
+			big = stack;
+		stack = stack->next;
 	}
 	return (big);
 }
 
-t_stack	*small_node(t_stack *stack)
+t_stack	*ft_small_node(t_stack *stack)
 {
 	t_stack	*small;
-	t_stack	*tmp;
 
 	small = stack;
-	tmp = stack->next;
-	while (tmp)
+	if (!stack)
 	{
-		if (tmp->value < small->value)
-			small = tmp;
-		tmp = tmp->next;
+		return (NULL);
+	}
+	while (stack)
+	{
+		if (small->value > stack->value)
+			small = stack;
+		stack = stack->next;
 	}
 	return (small);
 }
 
-int	count_elem(t_stack *stack)
+int	ft_stack_len(t_stack *stack)
 {
-	t_stack	*tmp;
-	int		size;
+	int	len;
 
-	size = 0;
-	tmp = stack;
-	while (tmp != NULL)
+	len = 0;
+	if (!stack)
+		return (0);
+	while (stack)
 	{
-		size++;
-		tmp = tmp->next;
+		len++;
+		stack = stack->next;
 	}
-	return (size);
-}
-
-void	ft_print_error(char *msg)
-{
-	ft_printf("%s\n", msg);
-	exit(1);
+	return (len);
 }
