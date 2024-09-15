@@ -6,7 +6,7 @@
 #    By: lrafael <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 09:23:51 by lrafael           #+#    #+#              #
-#    Updated: 2024/09/15 09:22:52 by lrafael          ###   ########.fr        #
+#    Updated: 2024/09/15 13:28:12 by lrafael          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRCS = $(SRCS_DIR)/ps_main.c			\
 		$(SRCS_DIR)/ps_operations.c	    \
 		$(SRCS_DIR)/ps_roperations.c	\
 		$(SRCS_DIR)/ps_sorting.c	    \
+		$(SRCS_DIR)/ps_sorting_utils.c  \
+		$(SRCS_DIR)/ps_sorting_utils+.c	\
 		$(SRCS_DIR)/ps_free.c
 
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)

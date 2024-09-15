@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:30:06 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 09:21:22 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/15 13:26:39 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,19 @@ t_stack	*ft_small_node(t_stack *stack)
 		stack = stack->next;
 	}
 	return (small);
+}
+
+t_stack	*get_cheapest(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }
 
 int	ft_stack_len(t_stack *stack)

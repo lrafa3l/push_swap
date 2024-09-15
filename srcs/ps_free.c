@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 13:48:15 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 09:20:27 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/15 13:25:24 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ void	ft_free_split(char **elem)
 	while (elem[i])
 		free(elem[i++]);
 	free(elem);
+	elem = NULL;
 }
