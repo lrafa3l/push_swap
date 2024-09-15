@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 10:10:18 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 13:25:30 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/15 14:53:48 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc < 2)
 		return (0);
+	ft_check_space(argv);
 	ft_stack_init(&a, argv + 1);
 	if (!ft_already_sorted(a))
 	{

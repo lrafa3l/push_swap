@@ -42,9 +42,11 @@ void	ft_print_error(t_stack **a, char **elem)
 	exit(1);
 }
 
-void	ft_atol_error(t_stack **a)
+void	ft_atol_error(t_stack **a, char **elem)
 {
 	ft_free_stack(a);
+	if (elem != NULL)
+		ft_free_split(elem);
 	ft_printf("Error\n");
 	exit(1);
 }

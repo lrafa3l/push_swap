@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 10:15:31 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 13:28:19 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/15 14:54:08 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_node
 /*Check*/
 int					ft_check_dup(t_stack *stack, int value);
 int					ft_already_sorted(t_stack *stack);
+void				ft_check_space(char **av);
 
 /*Free*/
 void				ft_free_stack(t_stack **a);
@@ -46,7 +47,7 @@ void				small_node_on_top(t_stack **a);
 /*Stack Init*/
 void				ft_stack_init(t_stack **a, char **av);
 void				ft_add_to_stack(t_stack **a, int value);
-long				ft_atol(const char *s, t_stack **a);
+long				ft_atol(const char *s, t_stack **a, char **elem);
 
 /*Stack Utils*/
 t_stack				*ft_last_elem(t_stack *stack);
@@ -57,7 +58,7 @@ int					ft_stack_len(t_stack *stack);
 
 /*Stack Utils+*/
 void				ft_print_error(t_stack **a, char **elem);
-void				ft_atol_error(t_stack **a);
+void				ft_atol_error(t_stack **a, char **elem);
 void				def_index(t_stack *stack);
 
 /*Operations*/

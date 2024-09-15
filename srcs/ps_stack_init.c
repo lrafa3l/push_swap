@@ -28,7 +28,7 @@ void	ft_stack_init(t_stack **a, char **av)
 			return ;
 		while (elem[j])
 		{
-			value = ft_atol(elem[j], a);
+			value = ft_atol(elem[j], a, elem);
 			if (value > INT_MAX || value < INT_MIN)
 				ft_print_error(a, elem);
 			if (ft_check_dup(*a, (int)value))
@@ -66,7 +66,7 @@ void	ft_add_to_stack(t_stack **a, int value)
 	}
 }
 
-long	ft_atol(const char *s, t_stack **a)
+long	ft_atol(const char *s, t_stack **a, char **elem)
 {
 	long	nbr;
 	int		sign;
@@ -81,12 +81,12 @@ long	ft_atol(const char *s, t_stack **a)
 			sign *= -1;
 		s++;
 		if (*s == '\0')
-			ft_atol_error(a);
+			ft_atol_error(a, elem);
 	}
 	while (*s)
 	{
 		if (!(*s >= 48 && *s <= 57))
-			ft_atol_error(a);
+			ft_atol_error(a, elem);
 		nbr = (nbr * 10) + (*(s++) - 48);
 	}
 	return (nbr * sign);
