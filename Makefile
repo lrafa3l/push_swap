@@ -46,6 +46,7 @@ SRCS_BONUS = $(SRCS_BONUS_DIR)/ps_main_bonus.c 					\
 				$(SRCS_BONUS_DIR)/ps_check_bonus.c 				\
 				$(SRCS_BONUS_DIR)/ps_stack_init_bonus.c			\
 				$(SRCS_BONUS_DIR)/ps_stack_utils_bonus.c		\
+				$(SRCS_BONUS_DIR)/ps_checker_utils_bonus.c 		\
 				$(SRCS_BONUS_DIR)/ps_checker_init_bonus.c 		\
 				$(SRCS_BONUS_DIR)/ps_operations_bonus.c			\
 				$(SRCS_BONUS_DIR)/ps_roperations_bonus.c		\

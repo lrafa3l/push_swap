@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_checker_start.c                                 :+:      :+:    :+:   */
+/*   ps_checker_init_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:16:46 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/16 14:16:48 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/19 18:51:38 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs_bonus/push_swap_bonus.h"
-
-static void	ft_isspace(char *op, t_stack **a)
-{
-	while (*op)
-	{
-		if (*op == ' ')
-			ft_wrong_op(op, a);
-		op++;
-	}
-}
 
 static int	ft_strcmp(char *s1, char *s2)
 {
@@ -32,20 +22,8 @@ static int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-void	ft_wrong_op(char *op, t_stack **a)
-{
-	if (a)
-		ft_free_stack(a);
-	free(op);
-	op = get_next_line(STDIN_FILENO, 1);
-	free(op);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
 void	ft_execute(char *op, t_stack **a, t_stack **b)
 {
-	ft_isspace(op, a);
 	if (ft_strcmp(op, "sa\n") == 0)
 		sa(a);
 	else if (ft_strcmp(op, "pa\n") == 0)
@@ -72,24 +50,28 @@ void	ft_execute(char *op, t_stack **a, t_stack **b)
 		ft_wrong_op(op, a);
 }
 
-void	ft_clean(char *op, t_stack **a)
-{
-	if (a)
-		ft_free_stack(a);
-	free(op);
-	get_next_line(-1, 1);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
 void	ft_check_null(char *op, t_stack **a, t_stack **b)
 {
 	if (!op)
 	{
 		if (ft_already_sorted(*a) && *b == NULL)
+		{
+			if (a)
+				ft_free_stack(a);
+			free(op);
+			get_next_line(-1, 1);
 			write(1, "OK\n", 3);
+			exit(0);
+		}
 		else
-			write(1, "KO\n", 3);
+		{
+			if (a)
+				ft_free_stack(a);
+			free(op);
+			get_next_line(-1, 1);
+			write(1, "OK\n", 3);
+			exit(0);
+		}
 		return ;
 	}
 }
@@ -104,25 +86,19 @@ void	ft_check_space_in(t_stack **a)
 
 void	ft_checker_init(t_stack **a, t_stack **b)
 {
-	char	*operation;
+	t_operation	op;
 
-	operation = get_next_line(STDIN_FILENO, 0);
-	ft_check_null(operation, a, b);
-	while (operation)
+	op.operation = get_next_line(STDIN_FILENO, 0);
+	ft_check_null(op.operation, a, b);
+	while (op.operation)
 	{
-		if (*operation == ' ')
-			ft_check_space_in(a);
-		operation++;
+		ft_execute(op.operation, a, b);
+		free(op.operation);
+		op.operation = get_next_line(STDIN_FILENO, 0);
 	}
-	while (operation)
-	{
-		ft_execute(operation, a, b);
-		free(operation);
-		operation = get_next_line(STDIN_FILENO, 0);
-	}
-	free(operation);
+	free(op.operation);
 	if (ft_already_sorted(*a) && *b == NULL)
 		write(1, "OK\n", 3);
-	else
+	else if (!ft_already_sorted(*a) && *b != NULL)
 		write(1, "KO\n", 3);
 }

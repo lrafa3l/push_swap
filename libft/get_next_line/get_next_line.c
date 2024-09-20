@@ -96,11 +96,8 @@ char	*get_next_line(int fd, int fl)
 
 	if (fl)
 	{
-		if (storage)
-		{
-			free(storage);
-			storage = NULL;
-		}
+		free(storage);
+		storage = NULL;
 		return (NULL);
 	}
 	if (fd < 0 || BUFFER_SIZE <= 0)

@@ -65,6 +65,7 @@ BONUS = ft_lstnew.c 	\
 
 OBJ = $(SRCS:.c=.o)
 BONUS_OBJ = $(BONUS:.c=.o)
+CLEAR = \033c
 
 all: $(NAME)
 
@@ -75,8 +76,7 @@ $(NAME): $(OBJ)
 	@make -s -C ft_printf
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\033c"
-	@echo "\n\t\t\033[92m\033[1m >> Libft Created <<\033[0m\n"
+	@echo $(CLEAR)
 
 bonus: $(BONUS_OBJ)
 	@ar rc $(NAME) $(BONUS_OBJ)
@@ -85,14 +85,12 @@ bonus: $(BONUS_OBJ)
 clean:
 	@make clean -s -C ft_printf
 	@/bin/rm -f $(OBJ) $(BONUS_OBJ)
-	@echo "\033c"
-	@echo "\n\t\t\033[31m\033[1m >> Erased <<\033[0m \n"
+	@echo $(CLEAR)
 
 fclean: clean
 	@make fclean -s -C ft_printf
 	@/bin/rm -f $(NAME)
-	@echo "\033c"
-	@echo "\n\t\t\033[31m\033[1m >> Everything Deleted! <<\033[0m\n"
+	@echo $(CLEAR)
 
 re: fclean all
 

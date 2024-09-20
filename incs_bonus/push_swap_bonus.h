@@ -6,7 +6,7 @@
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:00:08 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/16 14:10:45 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/20 14:36:20 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_stack;
+
+typedef struct s_operation
+{
+	char			*operation;
+	char			*tmp_op;
+}					t_operation;
 
 /*Check*/
 void				ft_check_error(int argc, char **argv);

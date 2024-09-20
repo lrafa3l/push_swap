@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_main_bonus.c                                    :+:      :+:    :+:   */
+/*   ps_checker_utils_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 11:58:58 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/20 14:36:45 by lrafael          ###   ########.fr       */
+/*   Created: 2024/09/20 10:45:27 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/20 14:34:37 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs_bonus/push_swap_bonus.h"
 
-int	main(int argc, char *argv[])
+void	ft_wrong_op(char *op, t_stack **a)
 {
-	t_stack	*a;
-	t_stack	*b;
+	if (a)
+		ft_free_stack(a);
+	free(op);
+	op = get_next_line(STDIN_FILENO, 1);
+	free(op);
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	ft_check_error(argc, argv);
-	ft_stack_init(&a, argv + 1);
-	ft_checker_init(&a, &b);
-	ft_free_stack(&a);
-	ft_free_stack(&b);
-	return (0);
+void	ft_clean(char *op, t_stack **a)
+{
+	if (a)
+		ft_free_stack(a);
+	free(op);
+	get_next_line(-1, 1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
