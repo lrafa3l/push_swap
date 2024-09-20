@@ -23,12 +23,6 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_stack;
 
-typedef struct s_operation
-{
-	char			*operation;
-	char			*tmp_op;
-}					t_operation;
-
 /*Check*/
 void				ft_check_error(int argc, char **argv);
 int					ft_already_sorted(t_stack *stack);

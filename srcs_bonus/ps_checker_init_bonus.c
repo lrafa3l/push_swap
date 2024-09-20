@@ -86,17 +86,17 @@ void	ft_check_space_in(t_stack **a)
 
 void	ft_checker_init(t_stack **a, t_stack **b)
 {
-	t_operation	op;
+	char	*operation;
 
-	op.operation = get_next_line(STDIN_FILENO, 0);
-	ft_check_null(op.operation, a, b);
-	while (op.operation)
+	operation = get_next_line(STDIN_FILENO, 0);
+	ft_check_null(operation, a, b);
+	while (operation)
 	{
-		ft_execute(op.operation, a, b);
-		free(op.operation);
-		op.operation = get_next_line(STDIN_FILENO, 0);
+		ft_execute(operation, a, b);
+		free(operation);
+		operation = get_next_line(STDIN_FILENO, 0);
 	}
-	free(op.operation);
+	free(operation);
 	if (ft_already_sorted(*a) && *b == NULL)
 		write(1, "OK\n", 3);
 	else if (!ft_already_sorted(*a) && *b != NULL)
