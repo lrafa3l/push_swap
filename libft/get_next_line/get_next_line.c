@@ -89,11 +89,20 @@ static char	*save_remaining(char *storage)
 	return (remaining);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int fl)
 {
 	static char	*storage;
 	char		*line;
 
+	if (fl)
+	{
+		if (storage)
+		{
+			free(storage);
+			storage = NULL;
+		}
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	storage = read_to_storage(fd, storage);

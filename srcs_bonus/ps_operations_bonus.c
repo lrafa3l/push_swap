@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_operations.c                                    :+:      :+:    :+:   */
+/*   ps_operations_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:29:39 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 13:25:37 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/16 12:16:47 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "../incs_bonus/push_swap_bonus.h"
 
-void	sa(t_stack **a, int fl)
+void	sa(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -30,8 +30,33 @@ void	sa(t_stack **a, int fl)
 	first->prev = second;
 	second->prev = NULL;
 	*a = second;
-	if (fl)
-		ft_printf("sa\n");
+}
+
+void	sb(t_stack **b)
+{
+	t_stack	*first;
+	t_stack	*secnd;
+
+	if (*b != NULL && (*b)->next != NULL)
+	{
+		first = *b;
+		secnd = (*b)->next;
+		first->next = NULL;
+		first->next = secnd->next;
+		if (secnd->next != NULL)
+			secnd->next->prev = first;
+		secnd->next = first;
+		first->prev = secnd;
+		secnd->prev = NULL;
+		*b = secnd;
+	}
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	sa(a);
+	sb(b);
+	ft_printf("ss\n");
 }
 
 void	pa(t_stack **a, t_stack **b)
@@ -52,7 +77,6 @@ void	pa(t_stack **a, t_stack **b)
 		hold_a->prev = first;
 	*b = holder;
 	*a = first;
-	ft_printf("pa\n");
 }
 
 void	pb(t_stack **a, t_stack **b)
@@ -72,14 +96,4 @@ void	pb(t_stack **a, t_stack **b)
 		hold_b->prev = first;
 	*b = first;
 	first->prev = NULL;
-	ft_printf("pb\n");
-}
-
-void	rrr(t_stack **a, t_stack **b)
-{
-	if ((!(*a) || !(*a)->next) || (!(*b) || !(*b)->next))
-		return ;
-	rra(a, 0);
-	rrb(b, 0);
-	ft_printf("rrr\n");
 }

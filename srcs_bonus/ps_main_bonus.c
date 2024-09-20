@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ps_main_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:09:40 by lrafael           #+#    #+#             */
-/*   Updated: 2024/05/25 07:58:55 by lrafael          ###   ########.fr       */
+/*   Created: 2024/09/16 11:58:58 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/16 14:09:31 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../incs_bonus/push_swap_bonus.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+int	main(int argc, char *argv[])
+{
+	t_stack	*a;
+	t_stack	*b;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-size_t	ft_strlen_get(char *s);
-
-char	*get_next_line(int fd, int fl);
-char	*ft_strjoin_get(char *s1, char *s2);
-char	*ft_strchr_get(char *s, int c);
-
-#endif
+	a = NULL;
+	b = NULL;
+	if (argc < 2)
+		return (0);
+	ft_check_error(argc, argv);
+	ft_stack_init(&a, argv + 1);
+	ft_checker_init(&a, &b);
+	ft_free_stack(&a);
+	return (0);
+}

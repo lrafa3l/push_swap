@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_init.c                                    :+:      :+:    :+:   */
+/*   ps_stack_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:02:23 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 13:26:24 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/16 14:10:10 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "../incs_bonus/push_swap_bonus.h"
 
 void	ft_stack_init(t_stack **a, char **av)
 {
@@ -50,7 +50,6 @@ void	ft_add_to_stack(t_stack **a, int value)
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
 		return ;
-	node->cheapest = 0;
 	node->next = NULL;
 	node->value = value;
 	if (!*a)

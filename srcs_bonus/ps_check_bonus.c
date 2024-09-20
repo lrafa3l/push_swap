@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_check.c                                         :+:      :+:    :+:   */
+/*   ps_check_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 17:23:48 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 14:53:57 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/16 14:09:45 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "../incs_bonus/push_swap_bonus.h"
 
-void	ft_check_space(char **av)
+static int	ft_invalid(char *str)
+{
+	if (str == NULL || *str == '\0')
+		return (1);
+	while (*str)
+	{
+		if (!(*str == 32 || (*str >= 7 && *str <= 13)))
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
+void	ft_check_error(int argc, char **argv)
 {
 	int	i;
-	int	j;
-	int	k;
 
-	i = 0;
-	while (av[i])
+	i = 1;
+	while (i < argc)
 	{
-		j = 0;
-		k = 0;
-		while (av[i][j])
+		if (ft_invalid(argv[i]))
 		{
-			if (av[i][j] != ' ')
-				k++;
-			j++;
+			write (2, "Error\n", 6);
+			exit(1);
 		}
 		i++;
-	}
-	if (k == 0)
-	{
-		ft_printf("Error\n");
-		exit(1);
 	}
 }
 

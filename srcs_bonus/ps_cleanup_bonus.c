@@ -1,44 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_utils+.c                                  :+:      :+:    :+:   */
+/*   ps_cleanup_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 12:30:06 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 13:26:48 by lrafael          ###   ########.fr       */
+/*   Created: 2024/09/10 13:48:15 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/16 14:09:54 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
-
-void	def_index(t_stack *stack)
-{
-	int	index;
-	int	mid;
-
-	index = 0;
-	if (!stack)
-		return ;
-	mid = ft_stack_len(stack) / 2;
-	while (stack)
-	{
-		stack->index = index;
-		if (index <= mid)
-			stack->up_middle = 1;
-		else
-			stack->up_middle = 0;
-		stack = stack->next;
-		++index;
-	}
-}
+#include "../incs_bonus/push_swap_bonus.h"
 
 void	ft_print_error(t_stack **a, char **elem)
 {
 	ft_free_stack(a);
 	if (elem != NULL)
 		ft_free_split(elem);
-	ft_printf("Error\n");
+	write (2, "Error\n", 6);
 	exit(1);
 }
 
@@ -47,6 +26,32 @@ void	ft_atol_error(t_stack **a, char **elem)
 	ft_free_stack(a);
 	if (elem != NULL)
 		ft_free_split(elem);
-	ft_printf("Error\n");
+	write (2, "Error\n", 6);
 	exit(1);
+}
+
+void	ft_free_stack(t_stack **a)
+{
+	t_stack	*tmp;
+
+	while (*a)
+	{
+		tmp = (*a)->next;
+		free(*a);
+		*a = tmp;
+	}
+	*a = NULL;
+}
+
+void	ft_free_split(char **elem)
+{
+	int	i;
+
+	i = 0;
+	if (!elem)
+		return ;
+	while (elem[i])
+		free(elem[i++]);
+	free(elem);
+	elem = NULL;
 }

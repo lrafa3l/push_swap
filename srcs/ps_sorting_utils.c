@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_sorting_utils.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/15 11:57:31 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/15 13:25:58 by lrafael          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
@@ -39,20 +50,28 @@ void	def_target_a(t_stack *a, t_stack *b)
 
 void	def_cost(t_stack *a, t_stack *b)
 {
-	int	a_len;
-	int	b_len;
+	t_cost	cst;
 
-	a_len = ft_stack_len(a);
-	b_len = ft_stack_len(b);
+	cst.a_len = ft_stack_len(a);
+	cst.b_len = ft_stack_len(b);
 	while (a)
 	{
-		a->cost = a->index;
-		if (!(a->up_middle))
-			a->cost = a_len - (a->index);
-		if (a->target->up_middle)
-			a->cost += a->target->index;
-		else
-			a->cost += b_len - (a->target->index);
+		cst.max_rot = a->target->index;
+		if (a->index > a->target->index)
+			cst.max_rot = a->index;
+		cst.total_cost = cst.max_rot;
+		cst.max_rrot = cst.b_len - a->target->index;
+		if (cst.a_len - a->index > cst.b_len - a->target->index)
+			cst.max_rrot = cst.a_len - a->index;
+		if (cst.max_rrot < cst.total_cost)
+			cst.total_cost = cst.max_rrot;
+		cst.ra_rrb = a->index + (cst.b_len - a->target->index);
+		if (cst.ra_rrb < cst.total_cost)
+			cst.total_cost = cst.ra_rrb;
+		cst.rra_rb = (cst.a_len - a->index) + a->target->index;
+		if (cst.rra_rb < cst.total_cost)
+			cst.total_cost = cst.rra_rb;
+		a->cost = cst.total_cost;
 		a = a->next;
 	}
 }

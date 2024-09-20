@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 10:15:31 by lrafael           #+#    #+#             */
+/*   Updated: 2024/09/15 14:54:08 by lrafael          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -17,6 +28,17 @@ typedef struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_stack;
+
+typedef struct s_cost
+{
+	int				a_len;
+	int				b_len;
+	int				max_rot;
+	int				max_rrot;
+	int				ra_rrb;
+	int				rra_rb;
+	int				total_cost;
+}					t_cost;
 
 /*Check*/
 int					ft_check_dup(t_stack *stack, int value);

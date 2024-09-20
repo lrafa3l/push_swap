@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_utils.c                                   :+:      :+:    :+:   */
+/*   ps_stack_utils_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrafael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:30:06 by lrafael           #+#    #+#             */
-/*   Updated: 2024/09/15 13:26:39 by lrafael          ###   ########.fr       */
+/*   Updated: 2024/09/16 14:10:19 by lrafael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/push_swap.h"
+#include "../incs_bonus/push_swap_bonus.h"
 
 t_stack	*ft_last_elem(t_stack *stack)
 {
@@ -55,19 +55,6 @@ t_stack	*ft_small_node(t_stack *stack)
 		stack = stack->next;
 	}
 	return (small);
-}
-
-t_stack	*get_cheapest(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->cheapest)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
 }
 
 int	ft_stack_len(t_stack *stack)
